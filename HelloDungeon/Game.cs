@@ -30,6 +30,7 @@ namespace HelloDungeon
             float power = 10.0f;
             string characterJob = "";
             bool gameOver = false;
+            //Test commit
 
             /// Create the start screen for your text adventure game.
             /// Use variables to store data for the game.
