@@ -44,37 +44,50 @@ namespace HelloDungeon
             /// base stats, or anything else to comes to mind.
             ///
 
-            //Job selection menu
-            Console.WriteLine("Pick a job!");
-            Console.WriteLine("1.Wizard");
-            Console.WriteLine("2.Knight");
-            Console.Write("> ");
+            string input = "";
+            bool validInputReceived = false;
 
-            //Get input from player
-            string input = Console.ReadLine();
+            while (validInputReceived == false)
+            {
+                //Job selection menu
+                Console.WriteLine("Pick a job!");
+                Console.WriteLine("1.Wizard");
+                Console.WriteLine("2.Knight");
+                Console.Write("> ");
 
-            //If player selected the first option...
-            if (input == "1" || input == "Wizard")
-            {
-                //...give the player the stats for a wizard
-                characterJob = "Wizard";
-                health = 150;
-                power = 15;
+                //Get input from player
+                input = Console.ReadLine();
+
+                //If player selected the first option...
+                if (input == "1" || input == "Wizard")
+                {
+                    //...give the player the stats for a wizard
+                    characterJob = "Wizard";
+                    health = 150;
+                    power = 15;
+                    validInputReceived = true;
+                }
+                //Otherwise if the player selected the second option...
+                else if (input == "2" || input == "Knight")
+                {
+                    //...give the player the stats for a knight
+                    characterJob = "Knight";
+                    health = 300;
+                    power = 400;
+                    validInputReceived = true;
+                }
+                //If neither are true...
+                else
+                {
+                    //...display error message
+                    Console.WriteLine("Invalid Input");
+                }
+
+                Console.ReadKey();
+                Console.Clear();
             }
-            //Otherwise if the player selected the second option...
-            else if (input == "2" || input == "Knight")
-            {
-                //...give the player the stats for a knight
-                characterJob = "Knight";
-                health = 300;
-                power = 400;
-            }
-            //If neither are true...
-            else
-            {
-                //...display error message
-                Console.WriteLine("Invalid Input");
-            }
+
+            
 
             //Display character stats
             Console.WriteLine("Your Character Stats\n");
@@ -100,6 +113,43 @@ namespace HelloDungeon
             {
                 Console.WriteLine("You're worried about the weird beverage, so you ask the traveler to try it first.");
 
+            }
+
+            int numberOfAttempts = 4;
+
+            
+
+            for (int i = 0; i < numberOfAttempts; i++)
+            {
+                Console.Clear();
+
+                Console.WriteLine( "     __\n" +
+                                   "w  c(..)o   (\n" +
+                                   " \\__(-)   __)\n" +
+                                   "    /|   (\n" +
+                                   "   /(_)___)\n" +
+                                   "  w /|\n" +
+                                   "   \\ \\ \n" +
+                                   "    m m");
+
+
+                Console.WriteLine("A very old man with a monkey oon his back approaches you." +
+                "\n The monkey offers you immortality if you can solve a riddle in " + numberOfAttempts + " attempts.");
+                Console.WriteLine("What has to be broken before you can use it?");
+                int attemptsRemaining = numberOfAttempts - i;
+                Console.WriteLine("Attempts Remaining: " + attemptsRemaining);
+                Console.Write("> ");
+                input = Console.ReadLine();
+
+                if (input == "egg")
+                {
+                    Console.WriteLine("Congrats! You've gained immortality!");
+                    break;
+                }
+
+                Console.WriteLine("Incorrect! The monkey laughs at you! It hurts..." +
+                    "you take 5 points of damage.");
+                health -= 5;
             }
         }
     }
