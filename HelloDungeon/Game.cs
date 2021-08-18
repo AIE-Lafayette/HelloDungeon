@@ -43,6 +43,64 @@ namespace HelloDungeon
             /// welcome message, a way for the player to initialize
             /// base stats, or anything else to comes to mind.
             ///
+
+            //Job selection menu
+            Console.WriteLine("Pick a job!");
+            Console.WriteLine("1.Wizard");
+            Console.WriteLine("2.Knight");
+            Console.Write("> ");
+
+            //Get input from player
+            string input = Console.ReadLine();
+
+            //If player selected the first option...
+            if (input == "1" || input == "Wizard")
+            {
+                //...give the player the stats for a wizard
+                characterJob = "Wizard";
+                health = 150;
+                power = 15;
+            }
+            //Otherwise if the player selected the second option...
+            else if (input == "2" || input == "Knight")
+            {
+                //...give the player the stats for a knight
+                characterJob = "Knight";
+                health = 300;
+                power = 400;
+            }
+            //If neither are true...
+            else
+            {
+                //...display error message
+                Console.WriteLine("Invalid Input");
+            }
+
+            //Display character stats
+            Console.WriteLine("Your Character Stats\n");
+            Console.WriteLine("Name: " + name);
+            Console.WriteLine("Job: " + characterJob);
+            Console.WriteLine("Health: " + health);
+            Console.WriteLine("Power: " + power);
+
+            Console.ReadKey();
+            Console.Clear();
+
+            Console.WriteLine("You've been approached by a traveler!!" +
+                "\n They offer you a potion. Do you accept?" +
+                "\n 1.Yes \n 2.No");
+
+            input = Console.ReadLine();
+
+            if (input == "1")
+            {
+                Console.WriteLine("It was posion!! Ya dead shuuuunnnnn");
+            }
+            else if (input == "2")
+            {
+                Console.WriteLine("You're worried about the weird beverage, so you ask the traveler to try it first.");
+
+            }
         }
     }
 }
