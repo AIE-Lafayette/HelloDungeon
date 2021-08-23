@@ -1,1 +1,3 @@
 # HelloDungeon
+
+## How To Play
